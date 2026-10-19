@@ -1,0 +1,10 @@
+<section class="banner<%= compact ? ' banner--compact' : '' %>">
+  <div class="banner__inner wrap">
+    <p class="banner__eyebrow"><%= eyebrow %></p>
+    <h1 class="banner__title" data-banner-title><%= heading %></h1>
+    <p class="banner__slogan" data-banner-slogan><%= slogan %></p>
+    <% if (actionHref) { %>
+      <a class="button button--light" href="<%= actionHref %>"><%= actionLabel %></a>
+    <% } %>
+  </div>
+</section>

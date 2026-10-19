@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+<section class="section section--narrow">
+  <div class="wrap">
+  <p class="eyebrow">Бронирование</p>
+  <h1>Стол на ваше имя</h1>
+  <p class="lead">Держим бронь 15 минут. Если планы изменятся, позвоните — отдадим стол следующим.</p>
+
+  <form class="form" method="post" action="/reservation" data-reservation-form novalidate>
+    <div class="field<%= errors.name ? ' is-invalid' : '' %>" data-field="name">
+      <label for="name">Имя</label>
+      <input id="name" name="name" type="text" autocomplete="name" required value="<%= values.name || '' %>">
+      <p class="field__error" data-error><%= errors.name || '' %></p>
+    </div>
+    <div class="field<%= errors.phone ? ' is-invalid' : '' %>" data-field="phone">
+      <label for="phone">Телефон</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+7 900 000-00-00" value="<%= values.phone || '' %>">
+      <p class="field__error" data-error><%= errors.phone || '' %></p>
+    </div>
+    <div class="form__row">
+      <div class="field<%= errors.date ? ' is-invalid' : '' %>" data-field="date">
+        <label for="date">Дата</label>
+        <input id="date" name="date" type="date" required min="<%= minDate %>" max="<%= maxDate %>" value="<%= values.date || '' %>">
+        <p class="field__error" data-error><%= errors.date || '' %></p>
+      </div>
+      <div class="field<%= errors.time ? ' is-invalid' : '' %>" data-field="time">
+        <label for="time">Время</label>
+        <select id="time" name="time" required>
+          <option value="">Выберите</option>
+          <% slots.forEach((slot) => { %>
+            <option value="<%= slot %>" <%= values.time === slot ? 'selected' : '' %>><%= slot %></option>
+          <% }) %>
+        </select>
+        <p class="field__error" data-error><%= errors.time || '' %></p>
+      </div>
+      <div class="field<%= errors.guests ? ' is-invalid' : '' %>" data-field="guests">
+        <label for="guests">Гости</label>
+        <input id="guests" name="guests" type="number" required min="1" max="8" inputmode="numeric" value="<%= values.guests || '' %>">
+        <p class="field__error" data-error><%= errors.guests || '' %></p>
+      </div>
+    </div>
+    <div class="field<%= errors.comment ? ' is-invalid' : '' %>" data-field="comment">
+      <label for="comment">Комментарий</label>
+      <textarea id="comment" name="comment" rows="4" maxlength="400"><%= values.comment || '' %></textarea>
+      <p class="field__error" data-error><%= errors.comment || '' %></p>
+    </div>
+    <button class="button" type="submit">Отправить заявку</button>
+  </form>
+  </div>
+</section>
+<%- include('partials/footer') %>

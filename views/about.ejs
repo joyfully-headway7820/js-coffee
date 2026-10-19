@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<section class="section section--narrow">
+  <div class="wrap">
+  <p class="eyebrow">О кофейне</p>
+  <h1>Семь лет на набережной</h1>
+  <div class="prose">
+    <p>«Северное зерно» открылось в старом складе у Северной Двины. Сначала здесь была только кофемолка, два стола и обжарка в подсобке. Гости приходили за фильтром и оставались, потому что из окна видно реку.</p>
+    <p>Сейчас в зале двадцать мест, своя обжарка и кондитерский цех. Зерно по-прежнему жарим сами: небольшие партии, чтобы чашка не ждала покупателя месяцами.</p>
+    <p>Мы не сеть. Меню короткое, свет в зале тёплый, а стол у окна лучше бронировать заранее — особенно в субботу.</p>
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+  <h2>Интерьер</h2>
+  <ul class="gallery">
+    <li class="shot" data-reveal>
+      <%- icon('sofa') %>
+      <span>Зал</span>
+    </li>
+    <li class="shot" data-reveal>
+      <%- icon('coffee') %>
+      <span>Бар</span>
+    </li>
+    <li class="shot" data-reveal>
+      <%- icon('sun') %>
+      <span>Окно на реку</span>
+    </li>
+  </ul>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap">
+  <h2>Команда</h2>
+  <ul class="team">
+    <% team.forEach(({ name, role, text }) => { %>
+      <li class="member" data-reveal>
+        <div class="member__avatar"><%- icon('user') %></div>
+        <h3><%= name %></h3>
+        <p class="card__meta"><%= role %></p>
+        <p><%= text %></p>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+</section>
+<%- include('partials/footer') %>

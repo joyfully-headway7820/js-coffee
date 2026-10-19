@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+<%- include('partials/banner', {
+  compact: false,
+  eyebrow: 'Кофейня в Архангельске',
+  heading: 'Северное зерно',
+  slogan: 'Обжариваем на Севере. Подаём, пока горячо.',
+  actionHref: '/reservation',
+  actionLabel: 'Забронировать стол'
+}) %>
+
+<section class="section">
+  <div class="wrap">
+  <div class="section__head">
+    <h2>Почему к нам возвращаются</h2>
+  </div>
+  <ul class="cards cards--four">
+    <% advantages.forEach(({ id, icon: iconName, title, text }) => { %>
+      <li class="card" data-reveal id="<%= id %>">
+        <%- icon(iconName) %>
+        <h3><%= title %></h3>
+        <p><%= text %></p>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap">
+  <div class="section__head">
+    <h2>Хиты меню</h2>
+    <a href="/menu">Всё меню</a>
+  </div>
+  <ul class="cards cards--menu">
+    <% hits.forEach(({ name, description, price }) => { %>
+      <li class="card menu-card" data-reveal>
+        <h3><%= name %></h3>
+        <p><%= description %></p>
+        <p class="price"><%= price %> ₽</p>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+  <ul class="stats">
+    <% stats.forEach(({ value, suffix, label }) => { %>
+      <li data-reveal>
+        <p class="stats__value"><span data-counter="<%= value %>">0</span><%= suffix %></p>
+        <p><%= label %></p>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+</section>
+
+<section class="section section--cta">
+  <div class="wrap">
+  <div class="cta" data-reveal>
+    <h2>Стол у окна свободен не всегда</h2>
+    <p>Оставьте имя и время — подтвердим бронь до визита.</p>
+    <a class="button" href="/reservation">Перейти к бронированию</a>
+  </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

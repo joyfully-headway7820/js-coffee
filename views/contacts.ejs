@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<section class="section">
+  <div class="wrap">
+  <p class="eyebrow">Контакты</p>
+  <h1>Как нас найти</h1>
+  <div class="contacts">
+    <ul class="contact-list">
+      <li data-reveal>
+        <h2><%- icon('map-pin') %> Адрес</h2>
+        <p><%= contacts.address %></p>
+      </li>
+      <li data-reveal>
+        <h2><%- icon('phone') %> Телефон</h2>
+        <p><a href="<%= contacts.phoneHref %>"><%= contacts.phone %></a></p>
+      </li>
+      <li data-reveal>
+        <h2><%- icon('clock') %> Часы работы</h2>
+        <p><%= contacts.hours %></p>
+      </li>
+      <li data-reveal>
+        <h2>Соцсети</h2>
+        <p class="socials">
+          <% contacts.socials.forEach(({ name, href }) => { %>
+            <a href="<%= href %>" rel="noreferrer"><%= name %></a>
+          <% }) %>
+        </p>
+      </li>
+    </ul>
+    <div class="map" data-reveal>
+      <%- icon('map') %>
+      <p><%= contacts.address %></p>
+    </div>
+  </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

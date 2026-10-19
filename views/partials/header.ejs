@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %> — Северное зерно</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,560;7..72,680&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="<%= page %>">
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="logo" href="/">
+        <%- icon('coffee') %>
+        <span>Северное зерно</span>
+      </a>
+      <nav class="nav" aria-label="Основное меню">
+        <a href="/" data-nav <%= path === '/' ? 'aria-current="page"' : '' %>>Главная</a>
+        <a href="/menu" data-nav <%= path.startsWith('/menu') ? 'aria-current="page"' : '' %>>Меню</a>
+        <a href="/about" data-nav <%= path.startsWith('/about') ? 'aria-current="page"' : '' %>>О кофейне</a>
+        <a href="/reservation" data-nav <%= path.startsWith('/reservation') ? 'aria-current="page"' : '' %>>Бронь</a>
+        <a href="/contacts" data-nav <%= path.startsWith('/contacts') ? 'aria-current="page"' : '' %>>Контакты</a>
+      </nav>
+    </div>
+  </header>
+  <main>

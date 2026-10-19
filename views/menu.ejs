@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<%- include('partials/banner', {
+  compact: true,
+  eyebrow: 'Карта',
+  heading: 'Меню',
+  slogan: 'Кофе, чай и десерты, которые печём сами.',
+  actionHref: '',
+  actionLabel: ''
+}) %>
+
+<section class="section" data-menu>
+  <div class="wrap">
+  <div class="filters" aria-label="Категории меню">
+    <button type="button" class="is-selected" data-filter="all" aria-pressed="true">Все</button>
+    <% categories.forEach(({ id, title }) => { %>
+      <button type="button" data-filter="<%= id %>" aria-pressed="false"><%= title %></button>
+    <% }) %>
+  </div>
+  <ul class="cards cards--menu" data-menu-grid>
+    <% menu.forEach(({ id, category, name, description, price }) => { %>
+      <li class="card menu-card" data-category="<%= category %>" id="<%= id %>">
+        <p class="card__meta"><%= categories.find((item) => item.id === category).title %></p>
+        <h3><%= name %></h3>
+        <p><%= description %></p>
+        <p class="price"><%= price %> ₽</p>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+</section>
+<%- include('partials/footer') %>

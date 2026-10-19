@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<section class="section section--narrow">
+  <div class="wrap">
+  <div class="confirm" data-reveal>
+    <p class="eyebrow">Готово</p>
+    <h1>Стол забронирован</h1>
+    <p class="lead">Ждём вас, <%= reservation.name %>. Если опоздаете больше чем на 15 минут, бронь снимем.</p>
+    <dl class="confirm__list">
+      <div>
+        <dt>Когда</dt>
+        <dd><%= reservation.dateLabel %>, <%= reservation.time %></dd>
+      </div>
+      <div>
+        <dt>Гости</dt>
+        <dd><%= reservation.guestsLabel %></dd>
+      </div>
+      <div>
+        <dt>Телефон</dt>
+        <dd><%= reservation.phoneLabel %></dd>
+      </div>
+      <% if (reservation.comment) { %>
+        <div>
+          <dt>Комментарий</dt>
+          <dd><%= reservation.comment %></dd>
+        </div>
+      <% } %>
+    </dl>
+    <a class="button" href="/">На главную</a>
+  </div>
+  </div>
+</section>
+<%- include('partials/footer') %>
